@@ -17,4 +17,8 @@ x = torch.randn(n)
 y = torch.randn(n)
 out = torch.empty_like(x)
 # 强制编译
+print("before add" )
+print(out);
 add_kernel[(n,)](x, y, out, n, BLOCK_SIZE=128)
+print("after add")
+print(out)
