@@ -1,0 +1,121 @@
+# AST to TTIR mapping - ast_to_ttir_trace
+# Generated: 2026-06-01 20:23:03.785306
+
+## 详细日志
+[visit_enter] AST=Module line=0 MLIR_ops=['loc']
+[visit_enter] AST=FunctionDef line=1 MLIR_ops=['name.loc', 'name.loc', 'name.loc', 'name.loc']
+[visit_enter] AST=arguments line=0 MLIR_ops=['loc', 'loc', 'loc', 'loc']
+[visit_enter] AST=arg line=1 MLIR_ops=[]
+[visit_enter] AST=arg line=1 MLIR_ops=[]
+[visit_enter] AST=arg line=1 MLIR_ops=[]
+[visit_enter] AST=arg line=1 MLIR_ops=['loc']
+[visit_enter] AST=Attribute line=1 MLIR_ops=['loc']
+[visit_enter] AST=Name line=1 MLIR_ops=[]
+[visit_enter] AST=list line=0 MLIR_ops=['loc', 'loc', 'loc', 'loc', 'loc', 'loc', 'loc']
+[visit_enter] AST=Assign line=2 MLIR_ops=['loc', 'name.loc', 'loc']
+[visit_enter] AST=Call line=2 MLIR_ops=['loc', 'name.loc', 'loc', 'name.loc']
+[visit_enter] AST=Attribute line=2 MLIR_ops=['loc', 'name.loc']
+[visit_enter] AST=Name line=2 MLIR_ops=[]
+[visit_enter] AST=Constant line=2 MLIR_ops=[]
+[visit_enter] AST=Name line=2 MLIR_ops=[]
+[visit_enter] AST=Assign line=3 MLIR_ops=['loc', 'name.loc', 'loc']
+[visit_enter] AST=BinOp line=3 MLIR_ops=['loc', 'name.loc', 'loc', 'name.loc']
+[visit_enter] AST=BinOp line=3 MLIR_ops=['loc', 'name.loc', 'loc', 'name.loc']
+[visit_enter] AST=Name line=3 MLIR_ops=[]
+[visit_enter] AST=Constant line=3 MLIR_ops=[]
+[visit_enter] AST=Call line=3 MLIR_ops=['loc', 'name.loc', 'loc', 'name.loc', 'loc', 'name.loc']
+[visit_enter] AST=Attribute line=3 MLIR_ops=['loc', 'name.loc']
+[visit_enter] AST=Name line=3 MLIR_ops=[]
+[visit_enter] AST=Constant line=3 MLIR_ops=[]
+[visit_enter] AST=Constant line=3 MLIR_ops=[]
+[visit_enter] AST=Name line=3 MLIR_ops=[]
+[visit_enter] AST=Assign line=4 MLIR_ops=['loc', 'name.loc', 'loc']
+[visit_enter] AST=Compare line=4 MLIR_ops=['loc', 'name.loc', 'loc', 'name.loc']
+[visit_enter] AST=Name line=4 MLIR_ops=[]
+[visit_enter] AST=Name line=4 MLIR_ops=[]
+[visit_enter] AST=Name line=4 MLIR_ops=[]
+[visit_enter] AST=Assign line=5 MLIR_ops=['loc', 'name.loc', 'loc']
+[visit_enter] AST=Call line=5 MLIR_ops=['loc', 'name.loc', 'loc', 'name.loc', 'loc', 'name.loc']
+[visit_enter] AST=Attribute line=5 MLIR_ops=['loc', 'name.loc']
+[visit_enter] AST=Name line=5 MLIR_ops=[]
+[visit_enter] AST=keyword line=5 MLIR_ops=['loc', 'name.loc']
+[visit_enter] AST=Name line=5 MLIR_ops=[]
+[visit_enter] AST=BinOp line=5 MLIR_ops=['loc', 'name.loc', 'loc', 'name.loc']
+[visit_enter] AST=Name line=5 MLIR_ops=[]
+[visit_enter] AST=Name line=5 MLIR_ops=[]
+[visit_enter] AST=Name line=5 MLIR_ops=[]
+[visit_enter] AST=Assign line=6 MLIR_ops=['loc', 'name.loc', 'loc']
+[visit_enter] AST=Call line=6 MLIR_ops=['loc', 'name.loc', 'loc', 'name.loc', 'loc', 'name.loc']
+[visit_enter] AST=Attribute line=6 MLIR_ops=['loc', 'name.loc']
+[visit_enter] AST=Name line=6 MLIR_ops=[]
+[visit_enter] AST=keyword line=6 MLIR_ops=['loc', 'name.loc']
+[visit_enter] AST=Name line=6 MLIR_ops=[]
+[visit_enter] AST=BinOp line=6 MLIR_ops=['loc', 'name.loc', 'loc', 'name.loc']
+[visit_enter] AST=Name line=6 MLIR_ops=[]
+[visit_enter] AST=Name line=6 MLIR_ops=[]
+[visit_enter] AST=Name line=6 MLIR_ops=[]
+[visit_enter] AST=Assign line=7 MLIR_ops=['loc', 'name.loc', 'loc']
+[visit_enter] AST=BinOp line=7 MLIR_ops=['loc', 'name.loc', 'loc', 'name.loc']
+[visit_enter] AST=Name line=7 MLIR_ops=[]
+[visit_enter] AST=Name line=7 MLIR_ops=[]
+[visit_enter] AST=Name line=7 MLIR_ops=[]
+[visit_enter] AST=Expr line=8 MLIR_ops=['loc']
+[visit_enter] AST=Call line=8 MLIR_ops=['loc', 'loc', 'loc', 'loc']
+[visit_enter] AST=Attribute line=8 MLIR_ops=['loc']
+[visit_enter] AST=Name line=8 MLIR_ops=[]
+[visit_enter] AST=keyword line=8 MLIR_ops=['loc']
+[visit_enter] AST=Name line=8 MLIR_ops=[]
+[visit_enter] AST=BinOp line=8 MLIR_ops=['loc', 'loc']
+[visit_enter] AST=Name line=8 MLIR_ops=[]
+[visit_enter] AST=Name line=8 MLIR_ops=[]
+[visit_enter] AST=Name line=8 MLIR_ops=[]
+
+## 统计: AST 节点 visit 次数
+  Name: 27
+  Attribute: 6
+  Assign: 6
+  BinOp: 6
+  Call: 5
+  arg: 4
+  Constant: 4
+  keyword: 3
+  Module: 1
+  FunctionDef: 1
+  arguments: 1
+  list: 1
+  Compare: 1
+  Expr: 1
+
+## 统计: AST → MLIR op 生成对应
+  Assign:
+    → loc: 12
+    → name.loc: 6
+  Attribute:
+    → loc: 6
+    → name.loc: 4
+  BinOp:
+    → loc: 12
+    → name.loc: 10
+  Call:
+    → loc: 15
+    → name.loc: 11
+  Compare:
+    → loc: 2
+    → name.loc: 2
+  Constant:
+  Expr:
+    → loc: 1
+  FunctionDef:
+    → name.loc: 4
+  Module:
+    → loc: 1
+  Name:
+  arg:
+    → loc: 1
+  arguments:
+    → loc: 4
+  keyword:
+    → loc: 3
+    → name.loc: 2
+  list:
+    → loc: 7

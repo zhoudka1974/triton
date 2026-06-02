@@ -1,0 +1,130 @@
+# AST to TTIR mapping - _tmp
+# Generated: 2026-06-02 10:09:05.704002
+
+## 详细日志
+[visit_enter] AST=Module line=0 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=FunctionDef line=1 MLIR_ops=['set_loc']
+[visit_enter] AST=arguments line=0 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc']
+[visit_enter] AST=arg line=1 MLIR_ops=[]
+[visit_enter] AST=arg line=1 MLIR_ops=[]
+[visit_enter] AST=arg line=1 MLIR_ops=[]
+[visit_enter] AST=arg line=1 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Attribute line=1 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Name line=1 MLIR_ops=[]
+[visit_enter] AST=list line=0 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc']
+[visit_enter] AST=Assign line=2 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc']
+[visit_enter] AST=Call line=2 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc', 'get.program.id']
+[visit_enter] AST=Attribute line=2 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Name line=2 MLIR_ops=[]
+[visit_enter] AST=Constant line=2 MLIR_ops=[]
+[visit_enter] AST=Name line=2 MLIR_ops=[]
+[visit_enter] AST=Assign line=3 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc']
+[visit_enter] AST=BinOp line=3 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc', 'splat', 'int.cast', 'int.cast', 'add', 'splat', 'icmpSLE', 'splat', 'icmpSGE', 'and', 'add']
+[visit_enter] AST=BinOp line=3 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc', 'int.cast', 'int.cast', 'mul', 'icmpSLE', 'icmpSGE', 'and', 'mul']
+[visit_enter] AST=Name line=3 MLIR_ops=[]
+[visit_enter] AST=Constant line=3 MLIR_ops=[]
+[visit_enter] AST=Call line=3 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'make.range']
+[visit_enter] AST=Attribute line=3 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Name line=3 MLIR_ops=[]
+[visit_enter] AST=Constant line=3 MLIR_ops=[]
+[visit_enter] AST=Constant line=3 MLIR_ops=[]
+[visit_enter] AST=Name line=3 MLIR_ops=[]
+[visit_enter] AST=Assign line=4 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc']
+[visit_enter] AST=Compare line=4 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc', 'splat', 'icmpSLT']
+[visit_enter] AST=Name line=4 MLIR_ops=[]
+[visit_enter] AST=Name line=4 MLIR_ops=[]
+[visit_enter] AST=Name line=4 MLIR_ops=[]
+[visit_enter] AST=Assign line=5 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc']
+[visit_enter] AST=Call line=5 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'masked.load']
+[visit_enter] AST=Attribute line=5 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Name line=5 MLIR_ops=[]
+[visit_enter] AST=keyword line=5 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Name line=5 MLIR_ops=[]
+[visit_enter] AST=BinOp line=5 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc', 'splat', 'addptr']
+[visit_enter] AST=Name line=5 MLIR_ops=[]
+[visit_enter] AST=Name line=5 MLIR_ops=[]
+[visit_enter] AST=Name line=5 MLIR_ops=[]
+[visit_enter] AST=Assign line=6 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc']
+[visit_enter] AST=Call line=6 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'masked.load']
+[visit_enter] AST=Attribute line=6 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Name line=6 MLIR_ops=[]
+[visit_enter] AST=keyword line=6 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Name line=6 MLIR_ops=[]
+[visit_enter] AST=BinOp line=6 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc', 'splat', 'addptr']
+[visit_enter] AST=Name line=6 MLIR_ops=[]
+[visit_enter] AST=Name line=6 MLIR_ops=[]
+[visit_enter] AST=Name line=6 MLIR_ops=[]
+[visit_enter] AST=Assign line=7 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc']
+[visit_enter] AST=BinOp line=7 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc', 'fadd']
+[visit_enter] AST=Name line=7 MLIR_ops=[]
+[visit_enter] AST=Name line=7 MLIR_ops=[]
+[visit_enter] AST=Name line=7 MLIR_ops=[]
+[visit_enter] AST=Expr line=8 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Call line=8 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'masked.store']
+[visit_enter] AST=Attribute line=8 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Name line=8 MLIR_ops=[]
+[visit_enter] AST=keyword line=8 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Name line=8 MLIR_ops=[]
+[visit_enter] AST=BinOp line=8 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc', 'splat', 'addptr']
+[visit_enter] AST=Name line=8 MLIR_ops=[]
+[visit_enter] AST=Name line=8 MLIR_ops=[]
+[visit_enter] AST=Name line=8 MLIR_ops=[]
+
+## 统计: AST 节点 visit 次数
+  Name: 27
+  Attribute: 6
+  Assign: 6
+  BinOp: 6
+  Call: 5
+  arg: 4
+  Constant: 4
+  keyword: 3
+  Module: 1
+  FunctionDef: 1
+  arguments: 1
+  list: 1
+  Compare: 1
+  Expr: 1
+
+## 统计: AST → MLIR op 生成对应
+  Assign:
+    → set_loc: 24
+  Attribute:
+    → set_loc: 12
+  BinOp:
+    → set_loc: 24
+    → splat: 6
+    → int.cast: 4
+    → addptr: 3
+    → add: 2
+    → icmpSLE: 2
+    → icmpSGE: 2
+    → and: 2
+    → mul: 2
+    → fadd: 1
+  Call:
+    → set_loc: 30
+    → masked.load: 2
+    → get.program.id: 1
+    → make.range: 1
+    → masked.store: 1
+  Compare:
+    → set_loc: 4
+    → splat: 1
+    → icmpSLT: 1
+  Constant:
+  Expr:
+    → set_loc: 2
+  FunctionDef:
+    → set_loc: 1
+  Module:
+    → set_loc: 2
+  Name:
+  arg:
+    → set_loc: 2
+  arguments:
+    → set_loc: 8
+  keyword:
+    → set_loc: 6
+  list:
+    → set_loc: 14

@@ -1,0 +1,64 @@
+# AST to TTIR mapping - python_test_microbenchmark_launch_overhead
+# Generated: 2026-06-01 20:50:22.939082
+
+## 详细日志
+[visit_enter] AST=Module line=0 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=FunctionDef line=1 MLIR_ops=['set_loc']
+[visit_enter] AST=arguments line=0 MLIR_ops=['set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc', 'set_loc']
+[visit_enter] AST=arg line=2 MLIR_ops=[]
+[visit_enter] AST=arg line=3 MLIR_ops=[]
+[visit_enter] AST=arg line=4 MLIR_ops=[]
+[visit_enter] AST=arg line=5 MLIR_ops=[]
+[visit_enter] AST=arg line=6 MLIR_ops=[]
+[visit_enter] AST=arg line=7 MLIR_ops=[]
+[visit_enter] AST=arg line=8 MLIR_ops=[]
+[visit_enter] AST=arg line=9 MLIR_ops=[]
+[visit_enter] AST=arg line=10 MLIR_ops=[]
+[visit_enter] AST=arg line=11 MLIR_ops=[]
+[visit_enter] AST=arg line=12 MLIR_ops=[]
+[visit_enter] AST=arg line=13 MLIR_ops=[]
+[visit_enter] AST=arg line=14 MLIR_ops=[]
+[visit_enter] AST=arg line=15 MLIR_ops=[]
+[visit_enter] AST=arg line=16 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Attribute line=16 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Name line=16 MLIR_ops=[]
+[visit_enter] AST=arg line=17 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Attribute line=17 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Name line=17 MLIR_ops=[]
+[visit_enter] AST=arg line=18 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Attribute line=18 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Name line=18 MLIR_ops=[]
+[visit_enter] AST=arg line=19 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Attribute line=19 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Name line=19 MLIR_ops=[]
+[visit_enter] AST=arg line=20 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Attribute line=20 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Name line=20 MLIR_ops=[]
+[visit_enter] AST=list line=0 MLIR_ops=['set_loc', 'set_loc']
+[visit_enter] AST=Pass line=22 MLIR_ops=[]
+
+## 统计: AST 节点 visit 次数
+  arg: 19
+  Attribute: 5
+  Name: 5
+  Module: 1
+  FunctionDef: 1
+  arguments: 1
+  list: 1
+  Pass: 1
+
+## 统计: AST → MLIR op 生成对应
+  Attribute:
+    → set_loc: 10
+  FunctionDef:
+    → set_loc: 1
+  Module:
+    → set_loc: 2
+  Name:
+  Pass:
+  arg:
+    → set_loc: 10
+  arguments:
+    → set_loc: 38
+  list:
+    → set_loc: 2

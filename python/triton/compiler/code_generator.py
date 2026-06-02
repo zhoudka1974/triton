@@ -20,6 +20,136 @@ from .._utils import find_paths_if, get_iterable_path, set_iterable_path, is_nam
 
 from .errors import (CompilationError, CompileTimeAssertionFailure, UnsupportedLanguageConstruct)
 
+# ── AST-to-TTIR 日志工具 ──────────────────────────────────────
+import os, threading, json, datetime
+
+_ast_logger = threading.local()
+
+class _AstLogger:
+    """记录 AST visit → MLIR op 的对应关系"""
+
+    @staticmethod
+    def init(test_name: str):
+        dir_path = os.path.join(os.path.dirname(__file__),
+                                '../../../docs/000.Summary/600.ast_to_ttir')
+        os.makedirs(dir_path, exist_ok=True)
+        # 如果已经有 records，说明是第二次调用（多个内核），不清除之前的
+        if hasattr(_ast_logger, 'records'):
+            return  # 追加模式，不重置
+        _ast_logger.records = []
+        _ast_logger.test_name = test_name
+        _ast_logger.log_path = os.path.join(dir_path, f"{test_name}.log")
+        _ast_logger.visit_stack = []
+
+    @staticmethod
+    def visit_enter(ast_type: str, lineno: int):
+        if not hasattr(_ast_logger, 'records'):
+            return
+        record = {
+            "type": "visit_enter",
+            "ast": ast_type,
+            "lineno": lineno,
+            "mlir_ops": [],
+        }
+        _ast_logger.records.append(record)
+        _ast_logger.visit_stack.append(record)
+
+    @staticmethod
+    def visit_exit():
+        if not hasattr(_ast_logger, 'visit_stack') or not _ast_logger.visit_stack:
+            return
+        _ast_logger.visit_stack.pop()
+
+    @staticmethod
+    def mlir_op(op_name: str):
+        if hasattr(_ast_logger, 'visit_stack') and _ast_logger.visit_stack:
+            _ast_logger.visit_stack[-1]["mlir_ops"].append(op_name)
+
+    @staticmethod
+    def flush():
+        if not hasattr(_ast_logger, 'records') or not _ast_logger.records:
+            return
+        # 统计每个 AST 节点类型的 visit 次数
+        from collections import Counter
+        ast_counter = Counter(r["ast"] for r in _ast_logger.records
+                              if r["type"] == "visit_enter")
+        # 统计每个 AST 节点类型生成的 MLIR op
+        ast_mlir_map = {}
+        for r in _ast_logger.records:
+            if r["type"] != "visit_enter":
+                continue
+            ast_t = r["ast"]
+            if ast_t not in ast_mlir_map:
+                ast_mlir_map[ast_t] = Counter()
+            for op in r["mlir_ops"]:
+                ast_mlir_map[ast_t][op] += 1
+
+        with open(_ast_logger.log_path, 'w') as f:
+            f.write(f"# AST to TTIR mapping - {_ast_logger.test_name}\n")
+            f.write(f"# Generated: {datetime.datetime.now()}\n\n")
+            f.write("## 详细日志\n")
+            for r in _ast_logger.records:
+                f.write(f"[{r['type']}] AST={r['ast']} line={r['lineno']} "
+                        f"MLIR_ops={r['mlir_ops']}\n")
+
+            f.write("\n## 统计: AST 节点 visit 次数\n")
+            for ast_t, cnt in ast_counter.most_common():
+                f.write(f"  {ast_t}: {cnt}\n")
+
+            f.write("\n## 统计: AST → MLIR op 生成对应\n")
+            for ast_t in sorted(ast_mlir_map.keys()):
+                ops = ast_mlir_map[ast_t]
+                f.write(f"  {ast_t}:\n")
+                for op_name, op_cnt in ops.most_common():
+                    f.write(f"    → {op_name}: {op_cnt}\n")
+
+    @staticmethod
+    def wrap_builder(builder):
+        """返回一个代理对象，拦截所有 builder 方法调用以记录 MLIR op 名"""
+        if not hasattr(_ast_logger, 'records'):
+            return builder
+        class BuilderProxy:
+            def __init__(self, target):
+                self._target = target
+            def __getattr__(self, name):
+                attr = getattr(self._target, name)
+                if callable(attr) and not name.startswith('_'):
+                    def _logged(*args, **kwargs):
+                        result = attr(*args, **kwargs)
+                        # 记录 MLIR op
+                        if name.startswith("create_"):
+                            op_name = name.replace("create_", "").replace("_", ".")
+                            if op_name not in ("loc", "name.loc"):
+                                _AstLogger.mlir_op(op_name)
+                        elif name.startswith("insert_"):
+                            op_name = name.replace("insert_", "").replace("_", ".")
+                            if op_name not in ("loc", "name.loc"):
+                                _AstLogger.mlir_op(op_name)
+                        elif name == "set_loc":
+                            _AstLogger.mlir_op(name)
+                        return result
+                    return _logged
+                return attr
+            def __repr__(self):
+                return repr(self._target)
+        proxy = BuilderProxy(builder)
+        # 将 builder 的所有属性复制到代理上，使 isinstance 检查等正常
+        return proxy
+
+
+def _ast_log_decorator(method):
+    """装饰 visit_* 方法，自动记录进入/退出和行号"""
+    def wrapper(self, node, *args, **kwargs):
+        ast_type = type(node).__name__
+        lineno = getattr(node, 'lineno', 0)
+        _AstLogger.visit_enter(ast_type, lineno)
+        try:
+            result = method(self, node, *args, **kwargs)
+            return result
+        finally:
+            _AstLogger.visit_exit()
+    return wrapper
+
 
 def check_identifier_legality(name, type):
     pattern = r'^[a-zA-Z_][a-zA-Z0-9_]*$'
@@ -1597,6 +1727,12 @@ class CodeGenerator(ast.NodeVisitor):
     }
 
 
+# 自动装饰 CodeGenerator 的所有 visit_* 方法
+for _name in list(CodeGenerator.__dict__.keys()):
+    if _name.startswith('visit_') and callable(CodeGenerator.__dict__[_name]):
+        setattr(CodeGenerator, _name, _ast_log_decorator(getattr(CodeGenerator, _name)))
+
+
 def ast_to_ttir(fn, src, context, options, codegen_fns, module_map, module=None):
     arg_types = [None] * len(fn.arg_names)
 
@@ -1628,7 +1764,16 @@ def ast_to_ttir(fn, src, context, options, codegen_fns, module_map, module=None)
     generator = CodeGenerator(context, prototype, gscope=fn.get_capture_scope(), function_name=fn.repr(proxy),
                               jit_fn=fn, is_kernel=True, file_name=file_name, begin_line=begin_line, options=options,
                               codegen_fns=codegen_fns, module_map=module_map, module=module, is_gluon=fn.is_gluon())
+    # AST 日志初始化
+    test_name = os.environ.get("TRITON_AST_LOG_NAME") or fn.__module__.split('.')[-1]
+    _AstLogger.init(test_name)
+    # 包装 builder 以记录 MLIR op
+    if not fn.is_gluon():
+        proxied = _AstLogger.wrap_builder(generator.builder)
+        generator.builder = proxied
+        generator.semantic.builder = proxied
     generator.visit(fn.parse())
+    _AstLogger.flush()
     module = generator.module
     # module takes ownership of the context
     module.context = context

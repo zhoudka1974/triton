@@ -1,0 +1,63 @@
+# AST→TTIR Collection Summary
+# Total files with @triton.jit: 28
+# Total kernels OK: 0
+# Total kernels FAIL: 0
+
+| File | Kernels | OK | FAIL | Detail |
+|------|---------|----|------|--------|
+| python/test/microbenchmark/launch_overhead.py | 0 | 0 | 0 |  |
+| python/test/microbenchmark/launch_overhead.py | 0 | 0 | 0 |  |
+| python/test/regression/test_cast_matmul.py | 0 | 0 | 0 |  |
+| python/test/regression/test_cast_matmul.py | 0 | 0 | 0 |  |
+| python/test/regression/test_functional_regressions.py | 0 | 0 | 0 |  |
+| python/test/regression/test_functional_regressions.py | 0 | 0 | 0 |  |
+| python/test/unit/cuda/test_libdevice.py | 0 | 0 | 0 |  |
+| python/test/unit/cuda/test_libdevice.py | 0 | 0 | 0 |  |
+| python/test/unit/cuda/test_mixed_io.py | 0 | 0 | 0 |  |
+| python/test/unit/cuda/test_mixed_io.py | 0 | 0 | 0 |  |
+| python/test/unit/cuda/test_tma_descriptor.py | 0 | 0 | 0 |  |
+| python/test/unit/cuda/test_tma_descriptor.py | 0 | 0 | 0 |  |
+| python/test/unit/cuda/test_tma_store_gemm.py | 0 | 0 | 0 |  |
+| python/test/unit/cuda/test_tma_store_gemm.py | 0 | 0 | 0 |  |
+| python/test/unit/instrumentation/test_gpuhello.py | 0 | 0 | 0 |  |
+| python/test/unit/instrumentation/test_gpuhello.py | 0 | 0 | 0 |  |
+| python/test/unit/language/print_helper.py | 0 | 0 | 0 |  |
+| python/test/unit/language/print_helper.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_block_pointer.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_block_pointer.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_compile_errors.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_compile_errors.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_conversions.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_conversions.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_core.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_core.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_frontend.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_frontend.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_line_info.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_line_info.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_matmul.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_matmul.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_module.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_module.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_pipeliner.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_pipeliner.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_tensor_descriptor.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_tensor_descriptor.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_tuple.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_tuple.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_warp_specialization.py | 0 | 0 | 0 |  |
+| python/test/unit/language/test_warp_specialization.py | 0 | 0 | 0 |  |
+| python/test/unit/runtime/test_bindings.py | 0 | 0 | 0 |  |
+| python/test/unit/runtime/test_bindings.py | 0 | 0 | 0 |  |
+| python/test/unit/runtime/test_cache.py | 0 | 0 | 0 |  |
+| python/test/unit/runtime/test_cache.py | 0 | 0 | 0 |  |
+| python/test/unit/runtime/test_compilation_listener.py | 0 | 0 | 0 |  |
+| python/test/unit/runtime/test_compilation_listener.py | 0 | 0 | 0 |  |
+| python/test/unit/test_debuginfo.py | 0 | 0 | 0 |  |
+| python/test/unit/test_debuginfo.py | 0 | 0 | 0 |  |
+| python/test/unit/test_filecheck.py | 0 | 0 | 0 |  |
+| python/test/unit/test_filecheck.py | 0 | 0 | 0 |  |
+| python/test/unit/test_link.py | 0 | 0 | 0 |  |
+| python/test/unit/test_link.py | 0 | 0 | 0 |  |
+| python/test/unit/tools/test_triton_to_gluon.py | 0 | 0 | 0 |  |
+| python/test/unit/tools/test_triton_to_gluon.py | 0 | 0 | 0 |  |

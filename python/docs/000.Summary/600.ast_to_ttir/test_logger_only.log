@@ -1,0 +1,17 @@
+# AST to TTIR mapping - test_logger_only
+# Generated: 2026-06-01 19:57:10.231462
+
+## 详细日志
+[visit_enter] AST=TestNode line=42 MLIR_ops=['tt.dot', 'arith.addi']
+[visit_enter] AST=AnotherNode line=100 MLIR_ops=['tt.load']
+
+## 统计: AST 节点 visit 次数
+  TestNode: 1
+  AnotherNode: 1
+
+## 统计: AST → MLIR op 生成对应
+  AnotherNode:
+    → tt.load: 1
+  TestNode:
+    → tt.dot: 1
+    → arith.addi: 1
